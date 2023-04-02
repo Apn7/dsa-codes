@@ -83,6 +83,20 @@ void dataIn(node **head, int data, int item)
     }
 }
 
+void insortt(node **head)
+{
+    node *ptr;
+    node *temp = *head;
+    for (ptr = temp->next; ptr!=NULL; ptr = ptr->next){
+        int key = ptr->info;
+        node *pre = ptr->prev;
+        while (pre != NULL && pre->info > key){
+            swap(pre->info,pre->next->info);
+            pre = pre->prev;
+        }
+    }
+}
+
 int main()
 {
     int n;cin>> n;
